@@ -38,6 +38,7 @@ const output = computed(() => {
     }
     return (pre = next)
   }, 0)
+  // xxx
   if (len !== 1) {
     returnValue.push({
       name: dataArray[includeChineseCharacters[len - 1]],
