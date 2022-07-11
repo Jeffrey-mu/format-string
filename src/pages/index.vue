@@ -38,10 +38,12 @@ const output = computed(() => {
     }
     return (pre = next)
   }, 0)
-  returnValue.push({
-    name: dataArray[includeChineseCharacters[len - 1]],
-    data: dataArray.slice(includeChineseCharacters[len - 1] + 1, Infinity),
-  })
+  if (len !== 1) {
+    returnValue.push({
+      name: dataArray[includeChineseCharacters[len - 1]],
+      data: dataArray.slice(includeChineseCharacters[len - 1] + 1, Infinity),
+    })
+  }
   return returnValue
 })
 </script>
