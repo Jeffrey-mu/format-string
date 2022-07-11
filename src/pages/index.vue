@@ -40,7 +40,7 @@ const output = computed(() => {
   }, 0)
   returnValue.push({
     name: dataArray[includeChineseCharacters[len - 1]],
-    data: dataArray.slice(includeChineseCharacters[len - 1], Infinity),
+    data: dataArray.slice(includeChineseCharacters[len - 1] + 1, Infinity),
   })
   return returnValue
 })
