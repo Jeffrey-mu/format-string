@@ -1,22 +1,98 @@
 <script setup lang="ts">
 import { JsonViewer } from 'vue3-json-viewer'
+import { dataType } from '~/composables/dataType'
 import 'vue3-json-viewer/dist/index.css'
-const input = ref<string>('')
+const input = ref<string>(`AQ - 违规:
+irenewobinson.com
+thomasborman.com
+youvanwinkle.com
+laraepop.com
+zuopatricia.com
+annybabu.com
+samsome.com
+gulugulo.com
+danaedance.com
+grindaeay.com
+louisekoop.com
+xxdiandian.com
+quellwoow.com
+cecilialool.com
+ulricwgooe.com
+izefiasuup.com
+mashhua.com
+dalateresive.com
+brianarry.com
+kathharr.com
+deolivra.com
+anniraig.com
+specialbrowse.com
+itsoftcore.com
+brumgame.com
+kindneygame.com
+senhaiitnews.com
+uatehorse.com
+suitabfinance.com
+singlehopeli.com
+vanishcar.com
+figuhorse.com
+preshorse.com
+rcephorse.com
+lawaimee.com
+crazygames.vip
+rrorhorse.com
+webaimee.com
+hotaimee.com
+envehorse.com
+mailaimee.com
+reaterluck.com
+runcooks.com
+quuitnews.com
+tplkabouts.com
+unsafeexit.com
+wiseaut.com
+photern.com
+undershes.com
+borsgame.com
+ousfinance.com
+dipityfiance.com
+minisfinance.com
+demagame.com
+agintigames.com
+dgingames.com
+sentiter.com
+ravigame.com
+leleigame.com
+charfinance.com
+hawergames.com
+tallegame.com
+cophgames.com
+werifinance.com
+shinfinance.com
+cheefinance.com
+tritang.com
+
+
+
+AQ - 缺ads.txt:
+ejoyzone.com
+game3h.com
+
+
+AQ - 已下线，无法访问:
+quipgamer.com
+mockhorse.com
+@王佳峰
+`)
 const output = computed(() => {
   if (!input.value)
     return ''
   const dataArray = input.value
     .trim()
-    .replaceAll('.com', '')
-    .replaceAll('.app', '')
-    .replaceAll('.cn', '')
-    .replaceAll('.top', '')
-    .replaceAll('.site', '')
-    .replaceAll('.cn', '')
+    .replace(/\..*\n/g, '\n')
     .split('\n')
     .filter(Boolean)
   const includeChineseCharacters: number[] = []
-  const returnValue = []
+  let returnValue: any = []
   function format(index = 0): void {
     const reg = /.*[\u4E00-\u9FA5].*/
     const hz: number = dataArray.slice(index).findIndex((item) => {
@@ -45,11 +121,15 @@ const output = computed(() => {
       data: dataArray.slice(includeChineseCharacters[len - 1] + 1, Infinity),
     })
   }
+  const type = dataType.value.find(item => item.show)
+  if (type && type.label !== 'json')
+    returnValue = returnValue.map(el => type.type.some(tl => el.name.includes(tl)) && el.data.join(',')).filter(Boolean).join(',')
   return returnValue
 })
 </script>
 
 <template>
+  <button-type />
   <div flex h80vh>
     <div flex="1">
       <textarea
