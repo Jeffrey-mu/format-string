@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { JsonViewer } from 'vue3-json-viewer'
+import { JsonViewer } from 'vue3-json-viewer-plus'
 import { dataType } from '~/composables/dataType'
-import 'vue3-json-viewer/dist/index.css'
+import 'vue3-json-viewer-plus/dist/index.css'
 const input = ref<string>(`AQ - 违规:
 irenewobinson.com
 thomasborman.com

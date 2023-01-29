@@ -16,7 +16,7 @@ export const dataType = ref<DataType[]>([
   },
   {
     label: '缺ads',
-    type: ['缺ads'],
+    type: ['缺ads', '缺adx'],
     show: false,
   },
 ])
