@@ -60,14 +60,14 @@ function copy(script: string, index: number) {
 </script>
 
 <template>
-  <div>
+  <div px-20>
     <h2>输入代码</h2>
     <textarea v-model="input" name="" cols="30" rows="10" p-xy w="100%" border b-rd h-20 />
     <div flex="1" ml1>
-      <ul flex="~ wrap">
+      <ul flex="~ wrap" p-10 gap-5>
         <li
-          v-for="item, index in newValue" :key="index" m2 w-100 b b-rd px-5 hover="bg-#CDF0EA/700"
-          dark:hover="bg-#111/700"
+          v-for="item, index in newValue" :key="index" w="32%" b b-rd px-5 hover="bg-#CDF0EA/700"
+          dark:hover="bg-#111/700" flex="~ col" direction-column
         >
           <h2 text-left font-600 relative mt-6>
             <span
@@ -81,6 +81,7 @@ function copy(script: string, index: number) {
           </h2>
           <p
             line-clamp-3 :title="item.script" color="#666" hover="color-red/700 font-600"
+            flex-1
             dark:hover="color-yellow/700 font-600" :class="[index === copyIndex ? 'color-blue' : '']" my-4
           >
             {{ copyIndex === index ? '已复制代码 ✅' : item.script }}
