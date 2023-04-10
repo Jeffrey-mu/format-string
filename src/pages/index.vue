@@ -88,6 +88,7 @@ const output = computed(() => {
     return ''
   const dataArray = input.value
     .trim()
+    .replace(/@/g, '\n@')
     .replace(/\..*\n/g, '\n')
     .split('\n')
     .filter(Boolean)
